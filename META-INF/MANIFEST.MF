@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Black_Jack
+Bundle-SymbolicName: Black_Jack
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: Black_Jack
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
