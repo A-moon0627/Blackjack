@@ -34,24 +34,19 @@ public class Player {
 		this.cardB = cardB;
 	}
 
-	//ゲーム開始一回目
-
-	public int score() {
-		return this.addCard = this.cardA + this.cardB;
-	}
 	public void game_1() {
 		if(spCard()) {
 			 massage21();
 		}else if(highCard()){
 			System.out.println(massageHigh1());
 		}else {
+			this.addCard = this.cardA + this.cardB;
 			System.out.println(massageAdd1());
 		}
 	}
 
 
 	public void game_2() {
-		this.addCard += this.cardB;
 
 		if(this.addCard == 21) {
 			System.out.println(cardMessage2());
@@ -60,33 +55,10 @@ public class Player {
 			System.out.println(massageHigh2());
 			this.gameContinue = 2;
 		}else {
+			this.addCard += this.cardB;
 			System.out.println(massageAdd2());
 		}
 	}
-
-	/*publicstatic void dealer(int addCard) {
-		int dealerAddCard =  (int)(Math.random()*24 + 17);
-		if(dealerAddCard <= 21 && addCard <= 21) {
-			if(addCard > dealerAddCard) {
-				score(addCard, dealerAddCard);
-				System.out.println("あなたの勝ちです。");
-			}else if(addCard == dealerAddCard) {
-				score(addCard, dealerAddCard);
-				System.out.println("引き分けです。");
-			}else {
-				score(addCard, dealerAddCard);
-				System.out.println("あなたの負けです。");
-			}
-		}else if(dealerAddCard > 21 && addCard <= 21) {
-			System.out.println("あなたは"+addCard+"でした。");
-			System.out.println("ディーラーはバーストしました。");
-			System.out.println("あなたの勝ちです。");
-		}else {
-			System.out.println("あなたはバーストしました。");
-			System.out.println("ディーラーは"+ dealerAddCard +"でした。");
-			System.out.println("あなたの勝ちです。");
-		}
-	}*/
 
 
 	public boolean spCard() {
@@ -117,7 +89,7 @@ public class Player {
 		return cardMessage() + "で、合計が21を超えたのでバーストしてしまいました。";
 	}
 	public String massageAdd1() {
-		return cardMessage() + "で、合計が" + score() + "になりました。";
+		return cardMessage() + "で、合計が" + this.addCard + "になりました。";
 	}
 
 	//二回目以降の言葉
