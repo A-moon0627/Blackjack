@@ -45,7 +45,6 @@ public class Player {
 		}
 	}
 
-
 	public void game_2() {
 
 		if(this.addCard == 21) {
@@ -60,7 +59,6 @@ public class Player {
 		}
 	}
 
-
 	public boolean spCard() {
 		return (this.cardA == 1 && this.cardB >= 11) || (this.cardA >= 11 && this.cardB == 1) || this.cardA + this.cardB == 21;
 	}
@@ -72,11 +70,9 @@ public class Player {
 		System.out.println("1.はい");
 		System.out.println("2.いいえ");
 	}
-
 	public static void gameFinish() {
 		System.out.println("ゲームを終了します。");
 	}
-
  	public String cardMessage() {
 		return this.cardA + "と" + this.cardB;
 	}

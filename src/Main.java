@@ -19,7 +19,7 @@ public class Main {
 
 		Player.continueMessage();
 		int gameContinue = scanner.nextInt();
-		your.setGameContinue(gameContinue);//ここまではうまく動作している。
+		your.setGameContinue(gameContinue);
 
 		while (your.getGameContinue() == 1) {
 			if(your.getAddCard() <= 21) {
