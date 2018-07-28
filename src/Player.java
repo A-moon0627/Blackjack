@@ -48,13 +48,15 @@ public class Player {
 	public void game_2() {
 
 		if(this.addCard == 21) {
+			this.addCard += cardB;
 			System.out.println(cardMessage2());
 			this.gameContinue = 2;
 		}else if(this.addCard>20){
+			this.addCard += cardB;
 			System.out.println(massageHigh2());
 			this.gameContinue = 2;
 		}else {
-			this.addCard += this.cardB;
+			this.addCard += cardB;
 			System.out.println(massageAdd2());
 		}
 	}
@@ -90,15 +92,12 @@ public class Player {
 
 	//二回目以降の言葉
 	public String cardMessage2() {
-		return "今引いたカードは" + this.cardB + "で、合計21なので、ブラックジャックになりました。";
+		return "今引いたカードは" + cardB + "で、合計21なので、ブラックジャックになりました。";
 	}
 	public String massageHigh2() {
-		return "今引いたカードは" + this.cardB +"で、合計が21を超えたのでバーストしてしまいました。";
+		return "今引いたカードは" + cardB +"で、合計が21を超えたのでバーストしてしまいました。";
 	}
 	public String massageAdd2() {
-		return "今引いたカードは" + this.cardB + "で、合計が" + this.addCard + "になりました。";
+		return "今引いたカードは" + cardB + "で、合計が" + this.addCard + "になりました。";
 	}
-
-
-
 }

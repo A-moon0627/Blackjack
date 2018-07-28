@@ -4,47 +4,50 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("これからブラックジャックを始めます。");
-		System.out.println("※絵札は10点ではなくそれぞれの数字どおりに計算しています。");
+		System.out.println("※絵札は2回目以降10点ではなくそれぞれの数字どおりに計算しています。");
 		System.out.print("あなたの名前を教えてください：");
 		String name = scanner.next();
 		Player your = new Player(name);
-		Player dealer = new Player("ディーラー");
+		Dealer dealer = new Dealer("ディーラー");
 
 		System.out.println(your.getName() +"はカードを2枚引きました。");
 		System.out.println(your.getName() + "の一枚目のカードは" + your.getCardA() + "、二枚目のカードは" + your.getCardB() + "です。");
 		System.out.println(dealer.getName() +"はカードを2枚引きました。");
 		System.out.println(dealer.getName() + "の一枚目のカードは" +dealer.getCardA() + "です。" );
 		your.game_1();
-		dealer.game_1();//あとで消す
+		dealer.game_1();
+		System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
 
 		Player.continueMessage();
 		int gameContinue = scanner.nextInt();
 		your.setGameContinue(gameContinue);
 
 		while (your.getGameContinue() == 1) {
-			if(your.getAddCard() <= 21) {
+			if(your.getAddCard() < 21) {
 				int cardB = (int)(Math.random()*13 + 1);//カードを引く（二回目以降）
 				your.setCardB(cardB);
 				your.game_2();
 			}
-			if(dealer.getAddCard() <= 21) {
+			if(dealer.getAddCard() < 21) {
 				int cardB = (int)(Math.random()*13 + 1);
 				dealer.setCardB(cardB);
 				System.out.println(dealer.getName() + "が一枚カードを引きました。");
-				dealer.game_2();//あとで消す。
+				dealer.game_2();
+				System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
 			}
-			if(your.getAddCard() <= 21) {
+			if(your.getAddCard() < 21) {
 				Player.continueMessage();
 				gameContinue = scanner.nextInt();
 				your.setGameContinue(gameContinue);
 			}
 		}
-		while(dealer.getAddCard() <= 21 && dealer.getAddCard() < 17) {
-			if(dealer.getAddCard() <= 21 && dealer.getAddCard() < 17) {
+		while(dealer.getAddCard() < 21 ) {
+			if(dealer.getAddCard() < 17) {
 				int cardB = (int)(Math.random()*13 + 1);
 				dealer.setCardB(cardB);
 				System.out.println(dealer.getName() + "が一枚カードを引きました。");
-				dealer.game_2();//あとで消す。
+				dealer.game_2();
+				System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
 			}
 		}
 		System.out.println(your.getName() + "は" + your.getAddCard() +"でした。");
