@@ -37,8 +37,10 @@ public class Player {
 	public void game_1() {
 		if(spCard()) {
 			 massage21();
+			 this.addCard = 21;
 		}else if(highCard()){
 			System.out.println(massageHigh1());
+			this.addCard = this.cardA + this.cardB;
 		}else {
 			this.addCard = this.cardA + this.cardB;
 			System.out.println(massageAdd1());
