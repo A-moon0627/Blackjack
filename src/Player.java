@@ -39,16 +39,17 @@ public class Player {
 			 massage21();
 			 this.addCard = 21;
 		}else if(highCard()){
+			score1();
 			System.out.println(massageHigh1());
-			this.addCard = this.cardA + this.cardB;
+			
 		}else {
-			this.addCard = this.cardA + this.cardB;
+			score1();
 			System.out.println(massageAdd1());
 		}
 	}
 
 	public void game_2() {
-		score();
+		score2();
 		if(this.addCard == 21) {
 			System.out.println(cardMessage2());
 			this.gameContinue = 2;
@@ -59,7 +60,18 @@ public class Player {
 			System.out.println(massageAdd2());
 		}
 	}
-	public void score() {
+	public void score1() {
+		if(cardA >= 11 && cardB >= 11) {
+			this.addCard = 20;
+		}else if(cardA >= 11) {
+			this.addCard = 10 + this.cardB;
+		}else if(cardB >= 11) {
+			this.addCard = this.cardA + 10;
+		}else {
+			this.addCard = this.cardA + this.cardB;
+		}
+	}
+	public void score2() {
 		switch(this.cardB) {
 		case 11:
 		case 12:

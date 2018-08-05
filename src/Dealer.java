@@ -39,7 +39,7 @@ public class Dealer {
 	}
 
 	public void game_2() {
-		score();
+		score2();
 		if(this.addCard == 21) {
 			this.gameContinue2 = 2;
 		}else if(this.addCard>20){
@@ -48,7 +48,36 @@ public class Dealer {
 		
 		}
 	}
-	public void score() {
+	public void game_3() {
+		while(this.addCard < 21 && this.gameContinue2 == 1) {
+			if(this.addCard < 17) {
+				int cardB = (int)(Math.random()*13 + 1);
+				this.cardB = cardB;
+				System.out.println(this.name + "が一枚カードを引きました。");
+				game_2();
+				System.out.println(this.cardB+" , "+ this.addCard);//ディーラー点数確認用
+			}else if(this.addCard == 17){
+				int gameContinue2 =(int)(Math.random()*2 + 1);
+				this.gameContinue2 =gameContinue2;
+				if(this.gameContinue2 == 1) {
+					int cardB = (int)(Math.random()*13 + 1);
+					this.cardB = cardB;
+					System.out.println(this.name + "が一枚カードを引きました。");
+					game_2();
+					System.out.println(this.cardB+" , "+ this.addCard);//ディーラー点数確認用
+				}
+			}else{
+				int cardB = (int)(Math.random()*13 + 1);
+				this.cardB = cardB;
+				System.out.println(this.name + "が一枚カードを引きました。");
+				game_2();
+				System.out.println(this.cardB +" , "+ this.addCard);//ディーラー点数確認用
+				int gameContinue2 =(int)(Math.random()*2 + 1);
+				this.gameContinue2 = gameContinue2;
+			}
+		}
+	}
+	public void score2() {
 		switch(this.cardB) {
 		case 11:
 		case 12:

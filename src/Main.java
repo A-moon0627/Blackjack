@@ -4,7 +4,6 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("これからブラックジャックを始めます。");
-		System.out.println("※絵札はブラックジャック除き初回のみそれぞれの数字どおりに計算しています。");
 		System.out.print("あなたの名前を教えてください：");
 		String name = scanner.next();
 		Player your = new Player(name);
@@ -43,34 +42,7 @@ public class Main {
 				your.setGameContinue(gameContinue);
 			}
 		}
-		while(dealer.getAddCard() < 21 && dealer.getGameContinue2() == 1) {
-			if(dealer.getAddCard() < 17) {
-				int cardB = (int)(Math.random()*13 + 1);
-				dealer.setCardB(cardB);
-				System.out.println(dealer.getName() + "が一枚カードを引きました。");
-				dealer.game_2();
-				System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
-			}else if(dealer.getAddCard() == 17){
-				int gameContinue2 =(int)(Math.random()*2 + 1);
-				dealer.setGameContinue2(gameContinue2);
-				if(dealer.getGameContinue2() == 1) {
-					int cardB = (int)(Math.random()*13 + 1);
-					dealer.setCardB(cardB);
-					System.out.println(dealer.getName() + "が一枚カードを引きました。");
-					dealer.game_2();
-					System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
-				}
-			}else{
-				int cardB = (int)(Math.random()*13 + 1);
-				dealer.setCardB(cardB);
-				System.out.println(dealer.getName() + "が一枚カードを引きました。");
-				dealer.game_2();
-				System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
-				int gameContinue2 =(int)(Math.random()*2 + 1);
-				dealer.setGameContinue2(gameContinue2);
-			}
-		}
-
+		dealer.game_3();
 		System.out.println(your.getName() + "は" + your.getAddCard() +"でした。");
 		System.out.println(dealer.getName() + "は" + dealer.getAddCard() + "でした。");
 
