@@ -4,7 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("これからブラックジャックを始めます。");
-		System.out.println("※絵札は2回目以降10点ではなくそれぞれの数字どおりに計算しています。");
+		System.out.println("※絵札はブラックジャック除き初回のみそれぞれの数字どおりに計算しています。");
 		System.out.print("あなたの名前を教えてください：");
 		String name = scanner.next();
 		Player your = new Player(name);
@@ -23,7 +23,7 @@ public class Main {
 			gameContinue = scanner.nextInt();
 			your.setGameContinue(gameContinue);
 		}
-		
+
 		while (your.getGameContinue() == 1 && your.getAddCard() < 21) {
 			if(your.getAddCard() < 21) {
 				int cardB = (int)(Math.random()*13 + 1);//カードを引く（二回目以降）
@@ -43,8 +43,7 @@ public class Main {
 				your.setGameContinue(gameContinue);
 			}
 		}
-		int gameContinue2 =1;
-		while(dealer.getAddCard() < 21 && gameContinue2 == 1) {
+		while(dealer.getAddCard() < 21 && dealer.getGameContinue2() == 1) {
 			if(dealer.getAddCard() < 17) {
 				int cardB = (int)(Math.random()*13 + 1);
 				dealer.setCardB(cardB);
@@ -52,8 +51,9 @@ public class Main {
 				dealer.game_2();
 				System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
 			}else if(dealer.getAddCard() == 17){
-				gameContinue2 =(int)(Math.random()*2 + 1);
-				if(gameContinue2 == 1) {
+				int gameContinue2 =(int)(Math.random()*2 + 1);
+				dealer.setGameContinue2(gameContinue2);
+				if(dealer.getGameContinue2() == 1) {
 					int cardB = (int)(Math.random()*13 + 1);
 					dealer.setCardB(cardB);
 					System.out.println(dealer.getName() + "が一枚カードを引きました。");
@@ -66,9 +66,11 @@ public class Main {
 				System.out.println(dealer.getName() + "が一枚カードを引きました。");
 				dealer.game_2();
 				System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
-				gameContinue2 =(int)(Math.random()*2 + 1);
+				int gameContinue2 =(int)(Math.random()*2 + 1);
+				dealer.setGameContinue2(gameContinue2);
 			}
 		}
+
 		System.out.println(your.getName() + "は" + your.getAddCard() +"でした。");
 		System.out.println(dealer.getName() + "は" + dealer.getAddCard() + "でした。");
 

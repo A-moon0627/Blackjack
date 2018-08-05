@@ -48,21 +48,28 @@ public class Player {
 	}
 
 	public void game_2() {
-
+		score();
 		if(this.addCard == 21) {
-			this.addCard += cardB;
 			System.out.println(cardMessage2());
 			this.gameContinue = 2;
 		}else if(this.addCard>20){
-			this.addCard += cardB;
 			System.out.println(massageHigh2());
 			this.gameContinue = 2;
 		}else {
-			this.addCard += cardB;
 			System.out.println(massageAdd2());
 		}
 	}
-
+	public void score() {
+		switch(this.cardB) {
+		case 11:
+		case 12:
+		case 13:
+			this.addCard += 10;
+		default:
+			this.addCard += this.cardB;
+		}
+	}
+	
 	public boolean spCard() {
 		return (this.cardA == 1 && this.cardB >= 11) || (this.cardA >= 11 && this.cardB == 1) || this.cardA + this.cardB == 21;
 	}
