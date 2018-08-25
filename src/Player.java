@@ -1,38 +1,19 @@
+public class Player extends Person {
 
-
-public class Player {
-
-	private String name;
-	private int cardA = (int)(Math.random()*13 + 1);
-	private int cardB = (int)(Math.random()*13 + 1);
-	private int addCard = 0;
 	private int gameContinue = 0;
 
 	Player(String name){
-		this.name = name;
+		super(name);
 	}
 
-	public String getName() {
-		return this.name;
-	}
-	public int getCardA() {
-		return this.cardA;
-	}
-	public int getCardB() {
-		return this.cardB;
-	}
-	public int getAddCard() {
-		return this.addCard;
-	}
+
 	public int getGameContinue() {
 		return this.gameContinue;
 	}
 	public void setGameContinue(int gameContinue) {
 		this.gameContinue = gameContinue;
 	}
-	public void setCardB(int cardB) {
-		this.cardB = cardB;
-	}
+
 
 	public void game_1() {
 		if(spCard()) {
@@ -41,7 +22,7 @@ public class Player {
 		}else if(highCard()){
 			score1();
 			System.out.println(massageHigh1());
-			
+
 		}else {
 			score1();
 			System.out.println(massageAdd1());
@@ -71,18 +52,9 @@ public class Player {
 			this.addCard = this.cardA + this.cardB;
 		}
 	}
-	public void score2() {
-		switch(this.cardB) {
-		case 11:
-		case 12:
-		case 13:
-			this.addCard += 10;
-		default:
-			this.addCard += this.cardB;
-		}
-	}
-	
-	public boolean spCard() {
+
+
+	public boolean spCard() {//ブラックジャックになる組み合わせ
 		return (this.cardA == 1 && this.cardB >= 11) || (this.cardA >= 11 && this.cardB == 1) || this.cardA + this.cardB == 21;
 	}
 	public  boolean highCard() {
