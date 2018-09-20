@@ -1,6 +1,5 @@
 /*
- * 本来は隠しておくべきディーラーの点数をコードの確認用に「ディーラー点数確認用」コメント付きで残している。
- * Main.javaとDealer.javaの2つのファイルにディーラーの点数表記用のコードがあるため、本来はそのコード一列をコメントにして使用する。
+ * Main.javaとDealer.javaの2つのファイルにディーラーの点数表記用のコードがあるため、確認時以外はコメントにする。
  */
 
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class Main {
 		System.out.println(dealer.getName() + "の一枚目のカードは" +dealer.getCardA() + "です。" );
 		your.game_1();
 		dealer.game_1();
-		System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
+		//System.out.println("ディーラー二枚目：" + dealer.getCardB()+" ,ディーラー合計： "+dealer.getAddCard());//ディーラー点数確認用
 		int gameContinue = 0;
 		if(your.getAddCard() < 21) {
 			Player.continueMessage();
@@ -39,7 +38,7 @@ public class Main {
 				dealer.setCardB(cardB);
 				System.out.println(dealer.getName() + "が一枚カードを引きました。");
 				dealer.game_2();
-				System.out.println(dealer.getCardB()+" , "+dealer.getAddCard());//ディーラー点数確認用
+				//System.out.println("ディーラーの引いたカード：" +dealer.getCardB()+" ,ディーラー合計： "+dealer.getAddCard());//ディーラー点数確認用
 			}
 			if(your.getAddCard() < 21) {
 				Player.continueMessage();

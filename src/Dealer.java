@@ -36,7 +36,7 @@ public class Dealer extends Person {
 				this.cardB = cardB;
 				System.out.println(this.name + "が一枚カードを引きました。");
 				game_2();
-				System.out.println(this.cardB+" , "+ this.addCard);//ディーラー点数確認用
+				//System.out.println(this.cardB+" , "+ this.addCard);//ディーラー点数確認用
 			}else if(this.addCard == 17){
 				int gameContinue2 =(int)(Math.random()*2 + 1);
 				this.gameContinue2 =gameContinue2;
@@ -45,14 +45,14 @@ public class Dealer extends Person {
 					this.cardB = cardB;
 					System.out.println(this.name + "が一枚カードを引きました。");
 					game_2();
-					System.out.println(this.cardB+" , "+ this.addCard);//ディーラー点数確認用
+					//System.out.println(this.cardB+" , "+ this.addCard);//ディーラー点数確認用
 				}
 			}else{
 				int cardB = (int)(Math.random()*13 + 1);
 				this.cardB = cardB;
 				System.out.println(this.name + "が一枚カードを引きました。");
 				game_2();
-				System.out.println(this.cardB +" , "+ this.addCard);//ディーラー点数確認用
+				//System.out.println(this.cardB +" , "+ this.addCard);//ディーラー点数確認用
 				int gameContinue2 =(int)(Math.random()*2 + 1);
 				this.gameContinue2 = gameContinue2;
 			}
